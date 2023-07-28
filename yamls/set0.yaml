@@ -1,0 +1,22 @@
+Eres: 1.0
+batch_size: 512
+cinn_units:
+- 128
+- 128
+- 128
+- 128
+decayepo: 10
+decayr: 0.9
+learn_rate: 0.005
+ncl: 4
+sigs:
+- 0.001
+- 0.01
+- 0.001
+- 0.001
+sum_units:
+- 64
+- 64
+- 64
+- 64
+summary_dim: 2
