@@ -16,11 +16,23 @@ In [yamls](/yamls/) you can save the files containing the detector and architect
 
 ## Dependencies
 
-Code uses:
+Code uses (version refers to the software version used in the paper, not the minimum requirements):
+
+
+- Python 3.6.15
+
 - Tensorflow 2.6.0
+
 - Tensorflow probability 0.14.1
+
 - Keras 2.6.0
+
 - Sklearn 0.23.2
+
 - Numpy 1.19.5
+
+- Pandas 1.1.5
+
 - Matplotlib 3.3.4 (only needed for plotting)
+
 - Corner.py 2.2.1 (only needed for plotting)

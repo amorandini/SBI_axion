@@ -199,27 +199,27 @@ def random_event(m_alp, ctau_alp, equal_weights): # Generates a random event for
     return event
  # Generates n_sets set of n_obs events                                                                                                                                                                                                              
 def generate_events(n_sets, n_obs, m_alp_min, m_alp_max, ctau_min, ctau_max, equal_weights): 
-  if m_alp_max > mB0 - mK0: # error in case you try to generate events which are unphysical
-    raise ValueError('You are generating events with too massive ALPs: cannot be produced in this decay.\n  Lower m_alp_max to be smaller than {}'.format(mB0 - mK0))
-    
-  event_list = []
-  while len(event_list) < n_sets:
-    # this defines the prior/sampling region
-    m_alp = np.exp(random.uniform(np.log(m_alp_min),np.log(m_alp_max)))   
-    ctau_alp = np.exp(random.uniform(np.log(ctau_min), np.log(ctau_max)))
-    # first we save the model parameters
-    event_obs = {
-    "m_alp": m_alp,
-    "ctau_alp": ctau_alp}
-    # then we generate n_obs (unweighted) events
-    iOBS = 0
-    while iOBS < n_obs:
+    if m_alp_max > mB0 - mK0: # error in case you try to generate events which are unphysical
+        raise ValueError('You are generating events with too massive ALPs: cannot be produced in this decay.\n  Lower m_alp_max to be smaller than {}'.format(mB0 - mK0))
+      
+    event_list = []
+    while len(event_list) < n_sets:
+        # this defines the prior/sampling region
+        m_alp = np.exp(random.uniform(np.log(m_alp_min),np.log(m_alp_max)))   
+        ctau_alp = np.exp(random.uniform(np.log(ctau_min), np.log(ctau_max)))
+        # first we save the model parameters
+        event_obs = {
+        "m_alp": m_alp,
+        "ctau_alp": ctau_alp}
+        # then we generate n_obs (unweighted) events
+        iOBS = 0
+        while iOBS < n_obs:
 
-        new_event = random_event(m_alp, ctau_alp, equal_weights)
-        if new_event["event_weight"] > 0: # reject invalid events
-            for k_old in ["gamma_1_calo_hit", "gamma_1_4momentum", "gamma_2_calo_hit", "gamma_2_4momentum", "decay_position", "event_weight"]: # new keys are assigned to new events
-                new_event[k_old+"_"+str(iOBS)] = new_event.pop(k_old)
-            event_obs.update(new_event)
-            iOBS+=1
-    event_list.append(event_obs)
-  return event_list
+            new_event = random_event(m_alp, ctau_alp, equal_weights)
+            if new_event["event_weight"] > 0: # reject invalid events
+                for k_old in ["gamma_1_calo_hit", "gamma_1_4momentum", "gamma_2_calo_hit", "gamma_2_4momentum", "decay_position", "event_weight"]: # new keys are assigned to new events
+                    new_event[k_old+"_"+str(iOBS)] = new_event.pop(k_old)
+                event_obs.update(new_event)
+                iOBS+=1
+        event_list.append(event_obs)
+    return event_list
