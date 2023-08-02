@@ -21,8 +21,8 @@ mKstar = 0.89176 # in GeV
 
 dump_x, dump_y, dump_z = 0, 0, 0        # dump position
 z_min,  z_max, z_cal = 10, 35, 35       # if tracking chambers considered part of the decay volume z_max = z_cal
-x_min, x_max = -1.25, 1.25              # calorimeter AND decay volume extension
-y_min, y_max = -1.25, 1.25              # 1, 3.5 for displaced
+x_min, x_max = -1.25, 1.25              # calorimeter AND decay volume extension, 1, 3.5 for detector off-axis
+y_min, y_max = -1.25, 1.25              # calorimeter AND decay volume extension, -1.25, 1.25 also for detector off-axis
 dr_gg, E_min = 0.1, 1                   # photon separation (m) and minimum energy of each photon (GeV)
 
 
