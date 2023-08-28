@@ -1,6 +1,6 @@
 # Reconstructing axion-like particles from beam dumps with simulation-based inference
 
-The code present here is used in (ref to arxiv link when available)
+The code present here is used in [this paper](https://arxiv.org/abs/2308.01353)
 
 In our work we used different detector setups with different geometries. Here we provide the code necessary to generate training samples, construct and train the cINN and derive the results of our paper.
 
